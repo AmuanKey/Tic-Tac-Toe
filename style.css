@@ -1,0 +1,19 @@
+
+.container{
+    margin-top: 300px;
+    display: grid;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px;
+    gap: 16px;
+
+}
+.square{
+    cursor: pointer;
+    border: 3px solid gray;
+}
+.red{
+    background-color: darkred;
+}
+.blue{
+    background-color: dodgerblue;
+}
