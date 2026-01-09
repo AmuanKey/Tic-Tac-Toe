@@ -1,25 +1,42 @@
-let gameBoard = ["","",""
+let gameBoard = ["Y","Y","Y"
                         ,"","",""
                         ,"","",""];
 
-let playerOne = "X";
-let playerTwo = "O";
+const playerOne = "X";
+const playerTwo = "Y";
 
 
 
-gameBoard[1]= playerOne;
-gameBoard[6]= playerOne;
-gameBoard[8]= playerOne;
 
-if (gameBoard[0] == "X" && gameBoard[1] == "X" && gameBoard[2] == "X"
-    || gameBoard[3] == "X" && gameBoard[4] == "X" && gameBoard[5] == "X"
-    || gameBoard[6] == "X" && gameBoard[7] == "X" && gameBoard[8] == "X"
-    || gameBoard[0] == "X" && gameBoard[3] == "X" && gameBoard[6] == "X"
-    || gameBoard[1] == "X" && gameBoard[4] == "X" && gameBoard[7] == "X"
-    || gameBoard[2] == "X" && gameBoard[5] == "X" && gameBoard[8] == "X"
-    || gameBoard[0] == "X" && gameBoard[4] == "X" && gameBoard[8] == "X"
-    || gameBoard[2] == "X" && gameBoard[4] == "X" && gameBoard[6] == "X") {
-    console.log("Player 1 wins");
-}else{
-    console.log("nothing");
+
+const winningConditions = [
+     [0,1,2], [3,4,5] , [6,7,8],
+     [0,3,6], [1,4,7] , [2,5,8],
+     [0,4,8], [2,4,6]
+];
+
+function checkingWinner(player){
+    for(let combo of winningConditions){
+        const [a,b,c] = combo;
+
+        if(gameBoard[a]=== player && gameBoard[b] === player && gameBoard[c] === player){
+
+        return true;
+        }
+
+    }
+    return false;
 }
+
+
+if(checkingWinner(playerOne)){
+
+    console.log("Plyer one wins");
+}
+else if(checkingWinner(playerTwo)){
+    console.log("Plyer two wins");
+}
+else{
+    console.log("nothing yet");
+}
+
